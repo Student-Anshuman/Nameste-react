@@ -46,3 +46,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+.filter{
+  font-size: 30px;
+  background: #ab9090;
+  padding-bottom: 10px;
+  padding-left: 10;
+}
