@@ -1,101 +1,54 @@
-import resList from "../../utils/mockData";
-import RestorentCard from "./  RestorantCard";
-import { useState } from "react";
+
+import RestorentCard from "./RestorantCard";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
 
   // State Variable - Super powerful variable
+  const [restroLists, setRestroLists] = useState([]);
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // Normal JS variable
-  let restroLists = [
-    {
-      info: {
-        id: "82141",
-        name: "Rahil Restaurant",
-        cloudinaryImageId: "kfjx9w9fu3ujeo3oxobb",
+  const fetchData = async() => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8755341&lng=81.0043726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
 
-        costForTwo: "₹350 for two",
-        cuisines: [
-          "North Indian",
-          "Chinese",
-          "South Indian",
-          "Thalis",
-          "Snacks",
-          "Continental",
-          "Desserts",
-        ],
-        avgRating: 3.9,
+    const json = await data.json();
 
-        avgRatingString: "4.3",
-        totalRatingsString: "18K+",
-      },
-    },
-    {
-      info: {
-        id: "82142",
-        name: "Rahil Restaurant",
-        cloudinaryImageId: "kfjx9w9fu3ujeo3oxobb",
-
-        costForTwo: "₹350 for two",
-        cuisines: [
-          "North Indian",
-          "Chinese",
-          "South Indian",
-          "Thalis",
-          "Snacks",
-          "Continental",
-          "Desserts",
-        ],
-        avgRating: 3.9,
-
-        avgRatingString: "4.3",
-        totalRatingsString: "18K+",
-      },
-    },
-    {
-      info: {
-        id: "82143",
-        name: "Rahil Restaurant",
-        cloudinaryImageId: "kfjx9w9fu3ujeo3oxobb",
-
-        costForTwo: "₹350 for two",
-        cuisines: [
-          "North Indian",
-          "Chinese",
-          "South Indian",
-          "Thalis",
-          "Snacks",
-          "Continental",
-          "Desserts",
-        ],
-        avgRating: 3.9,
-
-        avgRatingString: "4.3",
-        totalRatingsString: "18K+",
-      },
-    },
-  ];
-
-  return (
-    <div className="body">
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            // Filter logic here
-            restroLists = restroLists.filter((res) => res.info.avgRating > 4);
-            console.log(restroLists);
-          }} 
-        >
-          Top Rated Restorant{" "}
-        </button>
-      </div>
-      <div className="res-container">
-        {restroLists.map((restorant) => (
-          <RestorentCard key={restorant.info.id} resData={restorant} />
-        ))}
-      </div>
-    </div>
-  );
+    console.log(json);
+    //optional chaining
+    setRestroLists(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    
+  }
+  if (restroLists.length == 0) {
+     return <Shimmer/>
+   }
+     return (
+       <div className="body">
+         <div className="filter">
+           <button
+             className="filter-btn"
+             onClick={() => {
+               // Filter logic here
+               const filterRestroLists = restroLists.filter(
+                 (res) => res.info.avgRating > 4
+               );
+               setRestroLists(filterRestroLists);
+             }}
+           >
+             Top Rated Restorant
+           </button>
+         </div>
+         <div className="res-container">
+           {restroLists.map((restorant) => (
+             <RestorentCard key={restorant.info.id} resData={restorant} />
+           ))}
+         </div>
+       </div>
+     );
 };
 export default Body;
