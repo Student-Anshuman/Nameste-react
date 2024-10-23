@@ -25,32 +25,34 @@ const Body = () => {
     
   }
 
-  //conditional rendering 
-  if (restroLists.length == 0) {
-     return <Shimmer/>
-   }
-     return (
-       <div className="body">
-         <div className="filter">
-           <button
-             className="filter-btn"
-             onClick={() => {
-               // Filter logic here
-               const filterRestroLists = restroLists.filter(
-                 (res) => res.info.avgRating > 4
-               );
-               setRestroLists(filterRestroLists);
-             }}
-           >
-             Top Rated Restorant
-           </button>
+  
+  
+  return (
+       //ternery operator
+       restroLists.length ==
+       0 ? <Shimmer/> :(
+         <div className="body">
+           <div className="filter">
+             <button
+               className="filter-btn"
+               onClick={() => {
+                 // Filter logic here
+                 const filterRestroLists = restroLists.filter(
+                   (res) => res.info.avgRating > 4
+                 );
+                 setRestroLists(filterRestroLists);
+               }}
+             >
+               Top Rated Restorant
+             </button>
+           </div>
+           <div className="res-container">
+             {restroLists.map((restorant) => (
+               <RestorentCard key={restorant.info.id} resData={restorant} />
+             ))}
+           </div>
          </div>
-         <div className="res-container">
-           {restroLists.map((restorant) => (
-             <RestorentCard key={restorant.info.id} resData={restorant} />
-           ))}
-         </div>
-       </div>
+       )
      );
 };
 export default Body;
