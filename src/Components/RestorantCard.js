@@ -9,7 +9,7 @@ const RestorentCard = (props) => {
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime,
+     deliveryTime,
   } = resData?.info; // optional chaining
   return (
     <div className="res-card" style={{ backgroundColor: "lightgray" }}>

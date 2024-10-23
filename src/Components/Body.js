@@ -24,6 +24,8 @@ const Body = () => {
     setRestroLists(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     
   }
+
+  //conditional rendering 
   if (restroLists.length == 0) {
      return <Shimmer/>
    }
