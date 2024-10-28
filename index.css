@@ -51,6 +51,7 @@
   background: #ab9090;
   padding-bottom: 10px;
   padding-left: 10;
+  display : flex;
 }
 .shimmer-container{
   display:flex;
@@ -64,4 +65,9 @@
 .login{
   padding: 0 20px;
   cursor: pointer;
+}
+.search{
+  font-size: 0px;
+  
+
 }
