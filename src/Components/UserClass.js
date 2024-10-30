@@ -11,13 +11,16 @@ class UserClass extends React.Component {
     console.log(props);
   }
 
+  
   render() {
+    //by destructuring
+     const { name, location } = this.props;
+
     return (
       <div className="user-card">
-        <h2>Name :{this.props.name}</h2>{" "}
-        {/*This is method to extract props by using this.props.name  */}
-        <h3>Location : {this.props.location}</h3>{" "}
-        {/*This is method to extract props by using this.props.location  */}
+        <h2>Name :{name}</h2>{" "}
+        <h3>Location : {location}</h3>{" "}
+        
       </div>
     );
   }
