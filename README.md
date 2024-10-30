@@ -29,3 +29,8 @@ defalt value =>
    (Normal JS Utility functions)
    - useState() - Super Powerful State Variable React
    - useEffect(()=>{},[])  //useEffect contain two argument 1> arrow fxn  2>dependency array
+
+
+   # 2 types Routing in web apps
+    - Client Side Routing
+    - Server Side Routing

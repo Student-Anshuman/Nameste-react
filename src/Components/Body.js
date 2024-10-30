@@ -1,6 +1,7 @@
 import RestorentCard from "./RestorantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // State Variable - Super powerful variable
@@ -54,9 +55,7 @@ const Body = () => {
                 //searchText
                 console.log(searchText);
                 const filteredRestorant = restroLists.filter((res) =>
-                  res.info.name
-                    .toLowerCase()
-                    .includes(searchText.toLowerCase())
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
                 );
                 setFilteredRestorant(filteredRestorant);
               }}
@@ -80,7 +79,7 @@ const Body = () => {
         </div>
         <div className="res-container">
           {filteredRestorant.map((restorant) => (
-            <RestorentCard key={restorant.info.id} resData={restorant} />
+           <Link key={restorant.info.id} to = {"/restaurants/" + restorant.info.id}> <RestorentCard  resData={restorant} /></Link>
           ))}
         </div>
       </div>
