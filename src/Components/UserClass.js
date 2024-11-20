@@ -14,15 +14,15 @@ class UserClass extends Component {
       // only render that state was updating
     };
 
-    console.log("child constructor");
+    console.log(this.props.name + "constructor");
   }
 // API CALLS INSIDE componentDidMount()
   componentDidMount() {
-    console.log("child componentDidMount ");
+    console.log(this.props.name + "child componentDidMount ");
   }
 
   render() {
-    console.log("child render");
+    console.log(this.props.name + "child render");
     //by destructuring
     const { name, location } = this.props;
 

@@ -23,6 +23,7 @@ class About extends React.Component{
 
         <UserClass name={"child 1 (classBased)"} location={"Jhansi"} />
         <UserClass name={"child 2 (classBased)"} location={"Jhansi"} />
+        <UserClass name={"child 3 (classBased)"} location={"Jhansi"} />
       </div>
     );
     
