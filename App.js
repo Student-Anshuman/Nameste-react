@@ -1,4 +1,4 @@
-import React from "react";
+import React,{lazy , Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/Components/Header";
 import Body from "./src/Components/Body";
@@ -7,7 +7,7 @@ import Contact from "./src/Components/Contact";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import Error from "./src/Components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Grocery from "./src/Components/Grocery";
+// import Grocery from "./src/Components/Grocery";
 
 // chunking
 // Code Splitting
@@ -15,7 +15,9 @@ import Grocery from "./src/Components/Grocery";
 // Lazy Loading
 // Om demand loading
 
-// not using key(not acceptable)<<<<< index <<<<<<<<<<< unique id(best practise)
+const Grocery = lazy(() => import("./src/Components/Grocery"));
+
+
 
 const AppLayout = () => {
   return <div className="app">
@@ -47,7 +49,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Grocery />,
+        element: (
+          <Suspense fallback={<h1>Loading!!!!</h1>}>
+            <Grocery />  
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
