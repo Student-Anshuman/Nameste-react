@@ -1,4 +1,24 @@
 # NAMESTE REACT
+
+# Parcel
+- Dev Build
+- Local Server
+- HMR = Hot Module Replacement
+- File Watching Algorithm
+- Caching - Faster Builds
+- Image Optimization
+- Bundeling
+- Compress
+- Consistent Hashing
+- Code Splitting
+- Different Bundeling - support older browsers
+- Diagonastic
+- Error Handling
+- HTTPS
+- Tree Shaking - remove unused code
+- Different dev and prod bundels
+
+# Nameste Food
 /*
 * Header
 *  -Logo

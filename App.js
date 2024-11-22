@@ -6,9 +6,14 @@ import About from "./src/Components/About";
 import Contact from "./src/Components/Contact";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import Error from "./src/Components/Error";
-import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Grocery from "./src/Components/Grocery";
 
-
+// chunking
+// Code Splitting
+// Dynamic Bundling
+// Lazy Loading
+// Om demand loading
 
 // not using key(not acceptable)<<<<< index <<<<<<<<<<< unique id(best practise)
 
@@ -39,6 +44,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/grocery",
+        element: <Grocery />,
       },
     ],
     errorElement: <Error />,

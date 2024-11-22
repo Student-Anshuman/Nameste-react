@@ -14,6 +14,9 @@ class About extends React.Component{
   componentDidMount() {
     console.log("parent componentDidMount ");
   }
+  componentWillUnmount() {
+    console.log("this is Unmounted")
+  }
   render() {
     console.log("parent render");
     return (
