@@ -15,30 +15,33 @@ const Header = () => {
   }, [btnNameReact]);
 
   return (
-    <div className="header">
-      <div className="Logo-container">
-        <img className="Logo" src={LOGO_URL} />
+    <div className="flex justify-between bg-slate-300">
+      <div className="">
+        <img className="h-20 w-25 m-10" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status : {onlineStatus ? "🥳" : "😡"}</li>
-          <li>
+      <div className="justify-between mx-10 px-10">
+        <ul className="flex px-10 mx-10 justify-content-space-between">
+          <li className="mx-40">
+            Online Status : {onlineStatus ? "🥳" : "😡"}
+          </li>
+          <li className="mx-4">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="mx-4">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="mx-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="mx-4">
             <Link to="/cart">Cart</Link>
           </li>
-          <li>
+          <li className="mx-4">
             <Link to="/grocery">Grocery</Link>
           </li>
+
           <button
-            className="login"
+            className="login bg-slate-300 rounded-xl font-bold mx-4"
             onClick={() => {
               btnNameReact == "Login"
                 ? setBtnNameReact("Logout")

@@ -1,5 +1,5 @@
 {
-  "name": "nameste-react",
+  "name": "create-react-app",
   "version": "1.0.0",
   "scripts": {
     "start": "parcel index.html",
@@ -10,8 +10,10 @@
   "author": "raj",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.12.0",
-    "process": "^0.11.10"
+    "parcel": "^2.13.3",
+    "postcss": "^8.4.49",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.15"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -22,5 +24,5 @@
     "graceful-fs": "4.2.3"
   },
   "main": "App.js",
-  "description": ""
+  "description": "- Dev Build\r - Local Server\r - HMR = Hot Module Replacement\r - File Watching Algorithm\r - Caching - Faster Builds\r - Image Optimization\r - Bundeling\r - Compress\r - Consistent Hashing\r - Code Splitting\r - Different Bundeling - support older browsers\r - Diagonastic\r - Error Handling\r - HTTPS\r - Tree Shaking - remove unused code\r - Different dev and prod bundels"
 }

@@ -12,14 +12,18 @@ const RestorentCard = (props) => {
     sla,
   } = resData?.info; // optional chaining
   return (
-    <div className="res-card" style={{ backgroundColor: "lightgray" }}>
-      <img className="img" src={CDN_URL + cloudinaryImageId} />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating}stars</h4>
-      <h4>{costForTwo} For Two</h4>
-      <h4>{sla?.slaString}</h4>
-    </div>
+    
+      
+        <div className="bg-slate-300 h-300 content-center">
+          <img className="" src={CDN_URL + cloudinaryImageId} />
+          <h3>{name}</h3>
+          <h4>{cuisines.join(", ")}</h4>
+          <h4>{avgRating}stars</h4>
+          <h4>{costForTwo} For Two</h4>
+          <h4>{sla?.slaString}</h4>
+        </div>
+      
+    
   );
 };
 

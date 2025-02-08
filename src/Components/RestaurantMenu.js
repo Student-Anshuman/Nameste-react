@@ -18,7 +18,7 @@ const RestaurantMenu = () => {
   
 
   return (
-    <div className="menu">
+    <div className="menu flex">
       <h1>{name}</h1>
       <p>
         {cuisines.join(", ")} - {costForTwoMessage}
